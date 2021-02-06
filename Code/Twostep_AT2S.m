@@ -31,9 +31,7 @@ function [phi,F_n]=Twostep_AT2S(I1,I2,step_phase,tsr,ini_T,iter_num)
                 flag=flag+1;
             end
         end
-        [phi]=get_phi_quick(P_train,1/ini_T,step_phase,tsr);
-    %     phi((phi-O_train)<-3)=phi((phi-O_train)<-3)+2*pi;
-    %     phi((phi-O_train)>3)=phi((phi-O_train)>3)-2*pi;
+        [phi]=get_phi_quick(P_train,1/ini_T*2*pi,step_phase,tsr);
         px_s2=sum((-tsr:1:tsr).*(-tsr:1:tsr));
         for iter=1:(iter_num-1)
             Es=reshape(phi,(wid-2*tsr),(hei-2*tsr));
